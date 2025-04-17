@@ -7,3 +7,5 @@ with open('lib/battery/voltage_curves.json') as file:
     voltage_curves = json.load(file)
     for battery_type in voltage_curves:
         voltage_curves[battery_type] = list(reversed(voltage_curves[battery_type]))
+
+from .battery import Lipo
