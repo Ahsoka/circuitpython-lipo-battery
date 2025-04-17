@@ -25,6 +25,12 @@ class Lipo:
         self.voltage_ratio = voltage_ratio
         self.battery_type = battery_type
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.adc.deinit()
+
     @property
     def voltage(self) -> float:
         return (np.interp(
